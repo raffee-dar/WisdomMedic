@@ -1,0 +1,237 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Building an Interface with jQuery</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+
+      header {
+        height: 100px;
+        padding: 30px 0px 0px 100px;
+      }
+      #addApt {
+        font-size: 1.2em;
+      }
+      #addApt:hover {
+        cursor: pointer;
+      }
+      .card-body {
+        border: 1px darkorange inset;
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <div class="container">
+      <nav class="navbar bg-dark text-white">
+        <h4>
+          <i class="bi bi-bag-heart-fill mr-2" style="color: darkorange"></i>
+          Medical Appointment
+        </h4>
+      </nav>
+    </div>
+    <!--navigation-->
+
+    <div class="container-fluid bg-white">
+      <header>
+        <h1>Appointment Management</h1>
+      </header>
+      <!--header-->
+      <main>
+        <div class="container">
+          <section id="addApt" class="rounded p-2 bg-dark text-white">
+            <i
+              class="bi bi-calendar2-plus-fill mr-2"
+              style="color: darkorange"
+            ></i
+            >Add Appointment
+          </section>
+          <div class="card-body">
+            <form id="aptForm">
+              <div class="form-group form-row">
+                <label
+                  class="col-md-2 col-form-label text-md-right"
+                  for="patientName"
+                  >Patient Name</label
+                >
+                <div class="col-md-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="patientName"
+                    id="patientName"
+                    placeholder="Patient's Name"
+                  />
+                </div>
+                <!-- col-md-10 -->
+              </div>
+              <!-- form-group -->
+
+              <div class="form-group form-row">
+                <label
+                  class="col-md-2 col-form-label text-md-right"
+                  for="patAddress"
+                  >Patient's Address</label
+                >
+                <div class="col-md-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="patientAddress"
+                    placeholder="Patient's Address"
+                  />
+                </div>
+                <!-- col-md-10 -->
+              </div>
+              <!-- form-group -->
+
+              <div class="form-group form-row">
+                <label
+                  class="col-md-2 col-form-label text-md-right"
+                  for="aptDate"
+                  >Date</label
+                >
+                <div class="col-md-4">
+                  <input type="date" class="form-control" id="aptDate" />
+                </div>
+                <!-- col-md-4 -->
+                <label
+                  class="col-md-2 col-form-label text-md-right"
+                  for="aptTime"
+                  >Time</label
+                >
+                <div class="col-md-4">
+                  <input
+                    type="time"
+                    class="form-control"
+                    name="aptTime"
+                    id="aptTime"
+                  />
+                </div>
+                <!-- col-md-4 -->
+              </div>
+              <!-- form-group -->
+
+              <div class="form-group form-row">
+                <label class="col-md-2 text-md-right" for="aptNotes"
+                  >Apt. Notes</label
+                >
+                <div class="col-md-10">
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    cols="50"
+                    name="aptNotes"
+                    id="aptNotes"
+                    placeholder="Appointment Notes"
+                  ></textarea>
+                </div>
+                <!-- col-md-10 -->
+              </div>
+              <!-- form-group -->
+
+              <div class="form-group form-row mb-0">
+                <div class="offset-md-2 col-md-10">
+                  <button
+                    type="submit"
+                    class="btn btn-black d-block ml-auto text-white"
+                  >
+                    Add Appointment
+                  </button>
+                </div>
+                <!-- col-md-offset-2 -->
+              </div>
+              <!-- form-group -->
+            </form>
+          </div>
+          <!-- card-body -->
+          <section>
+            <div class="search-appointments row justify-content-center my-4">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <input
+                    id="SearchApts"
+                    placeholder="Search"
+                    type="text"
+                    class="form-control"
+                    aria-label="Search Appointments"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-dark dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Sort by: <span class="caret"></span>
+                    </button>
+
+                    <div class="sort-menu dropdown-menu dropdown-menu-right">
+                      <a
+                        class="sort-by dropdown-item"
+                        href="#"
+                        id="sort-patientName"
+                        >Patient Name</a
+                      >
+                      <a
+                        class="sort-by dropdown-item active"
+                        href="#"
+                        id="sort-aptDate"
+                        >Date</a
+                      >
+                      <a
+                        class="sort-by dropdown-item"
+                        href="#"
+                        id="sort-patientAddress"
+                        >Address</a
+                      >
+                      <div role="separator" class="dropdown-divider"></div>
+                      <a class="sort-dir dropdown-item" href="#" id="sort-asc"
+                        >Asc</a
+                      >
+                      <a
+                        class="sort-dir dropdown-item active"
+                        href="#"
+                        id="sort-desc"
+                        >Desc</a
+                      >
+                    </div>
+                  </div>
+                  <!-- input-group-btn -->
+                </div>
+                <!-- input-group -->
+              </div>
+              <!-- col-md-offset-3 -->
+            </div>
+            <!-- search-appointments -->
+          </section>
+          <section>
+            <div id="patList" class="appointment-list item-list mb-3">
+              
+            <!-- appointment-list -->
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/jquery.loadTemplate.min.js"></script>
+    <script src="js/lib/fontawesome-all.min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
