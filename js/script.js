@@ -2,11 +2,7 @@ $(function(){
   var aptData, displayData, sortBy, sortDir;
   sortBy='aptDate';
   sortDir='asc';
-  // EVENTS
-  $('#addApt').on('click', function(){
-    $('.card-body').toggle(300);
-  });
-
+ 
   //FUNCTION 
   function removeApt(aptID){
     var whichApt = _.find(aptData,function(item){
@@ -43,5 +39,37 @@ $.ajax({
 });
 
 
-}); //ajax loaded
+ // EVENTS
+ $('#addApt').on('click', function(){
+  $('.card-body').toggle(300);
+}); // click on add appointment
+
+
+$('.sort-menu .dropdown-item').on('click', function(){
+  var sortDropdown = $(this).attr('id');
+  switch (sortDropdown){
+    case'sort-patientName' : 
+      $('.sort-by').removeClass('active');
+      sortBy = 'patientName'; break;
+    case'sort-patientAddress' : 
+      $('.sort-by').removeClass('active');
+      sortBy = 'patientAddress'; break;
+    case'sort-aptDate' : 
+      $('.sort-by').removeClass('active');
+      sortBy = 'aptDate'; break;
+    case'sort-asc' : 
+      $('.sort-dir').removeClass('active');
+      sortBy = 'asc'; break;
+    case'sort-desc' : 
+      $('.sort-dir').removeClass('active');
+      sortBy = 'desc'; break;
+  }
+  $(this).addClass('active');
+ listAppointments(aptData);
+
+});
+
+
+
+}); // Document is ready
 
