@@ -116,9 +116,11 @@
       mixpanel.identify(/* \"<USER_ID\"> */)
       // Track an event. It can be anything, but in this example, we're tracking a Sign Up event.
       mixpanel.track('Sign Up', {
-        'Signup Type': 'Referral'
+        'Signup Type': 'addAPT'
       })
+      mixpanel.register({'Patient Name':'Mohit'});
     </script>
+   
     <div class="container">
       <nav class="navbar bg-dark text-white">
         <h4>
@@ -313,7 +315,7 @@
       </main>
     </div>
 
-    <script>mixpanel.register({'Gender': 'Female'});</script>
+    
 
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/jquery.loadTemplate.min.js"></script>
