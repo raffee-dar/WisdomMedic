@@ -108,6 +108,9 @@
   })(document, window.mixpanel || []);
 </script>
 <!-- mixPanel close -->
+<script>
+  mixpanel.init(97f40e5de08008fc1a87e77e0fc106fe, { debug: true, track_pageview: true, persistence: 'localStorage' });
+</script>
   </head>
   <body class="bg-dark">
  
@@ -306,7 +309,21 @@
       </main>
     </div>
 
-   
+    <script>
+      window.onload = function () {
+        //track page load event
+        mixpanel.track("page loaded", {
+          pageName: document.title,
+          url: window.location.href,
+        });
+      };
+      document.querySelector("#addApt").addEventListener("click", function () {
+        mixpanel.track(" appointment form clicked !!", {
+          button_name: "myButton",
+          clicked_element_id: "123",
+        });
+      });
+    </script>
     
 
     <script src="js/lib/jquery.min.js"></script>
