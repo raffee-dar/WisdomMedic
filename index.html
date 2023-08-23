@@ -333,8 +333,9 @@
       function trackElement(event){
         const elmentName = event.target.getAttribute('type');
         if(elmentName){
-          mixpanel.track("Form Element Clicked", {
+          mixpanel.track("Form Start", {
             elementName: elmentName,
+            
   
         });
         }
