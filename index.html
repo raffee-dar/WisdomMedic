@@ -226,7 +226,7 @@
                 <div class="offset-md-2 col-md-10">
                   <button
                     type="submit"
-                    class="btn btn-black d-block ml-auto text-white"
+                    class="btn btn-black d-block ml-auto text-white btn-aptDetail"
                     value="submit"
                     >
                     Add Appointment
@@ -311,9 +311,16 @@
     <script>
     
       document.querySelector("#addApt").addEventListener("click", function () {
-        mixpanel.track(" appointment form clicked !!", {
-          button_name: "myButton",
+        mixpanel.track(" Appointment form clicked !!", {
+          button_name: "btn-appointment-form",
           clicked_element_id: "123",
+        });
+      });
+      
+      document.querySelector(".btn-aptDetail").addEventListener("click", function () {
+        mixpanel.track(" Appintment details entered !!", {
+          patientName: document.getElementById('#patientName').value,
+  
         });
       });
     </script>
