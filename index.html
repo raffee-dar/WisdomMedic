@@ -252,13 +252,13 @@
     </div>
 
     <script>
-      window.onload = function () {
-        //track page load event
-        mixpanel.track("page loaded", {
-          pageName: document.title,
-          url: window.location.href,
-        });
-      };
+      // window.onload = function () {
+      //   //track page load event
+      //   mixpanel.track("page loaded", {
+      //     pageName: document.title,
+      //     url: window.location.href,
+      //   });
+      // };
       document.querySelector("#addApt").addEventListener("click", function () {
         mixpanel.track("Appointment form opened !!", {
           button_name: "Add Appointment",
