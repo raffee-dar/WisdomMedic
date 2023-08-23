@@ -324,6 +324,12 @@
   
         });
       });
+      document.querySelector(".form-control").addEventListener("click", function () {
+        mixpanel.track("Form Start", {
+          input: 'control clicked'
+  
+        });
+      });
     </script>
     
 
