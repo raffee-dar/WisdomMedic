@@ -319,12 +319,9 @@
     </div>
 
     <script>
-      window.onload = function () {
+      window.pagebottom = function () {
         //track page load event
-        mixpanel.track("page loaded", {
-          pageName: document.title,
-          url: window.location.href,
-        });
+        mixpanel.track("page loaded", {pageName: document.title,url: window.location.href,});
       };
       document.querySelector("#addApt").addEventListener("click", function () {
         mixpanel.track("Appointment form opened !!", {
