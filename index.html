@@ -318,11 +318,13 @@
       });
       
       document.querySelector(".btn-aptDetail").addEventListener("click", function () {
-        mixpanel.track(" Appintment details entered !!", {
-          patientName: document.querySelector('#patientName').value,
-          partientAddress:document.querySelector('#patientAddress').value,
-  
-        });
+        if(document.querySelector('#patientName').value != '' && document.querySelector('#patientAddress').value != ''){
+          mixpanel.track(" Appintment details entered !!", {
+            patientName: document.querySelector('#patientName').value,
+            partientAddress:document.querySelector('#patientAddress').value,
+    
+          });
+        }
       });
 
       const inputElm =  document.querySelectorAll(".form-control");
