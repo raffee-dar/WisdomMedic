@@ -326,6 +326,7 @@
           });
         }
       });
+      var flag=0;
 
       const inputElm =  document.querySelectorAll(".form-control");
       inputElm.forEach(elm =>{
@@ -333,13 +334,15 @@
       });
 
       function trackElement(event){
-        const elmentName = event.target.getAttribute('type');
-        if(elmentName){
-          mixpanel.track("Form Start", {
-            elementName: elmentName,
-            
-  
-        });
+        
+         if(flag == 0){ 
+          const elmentName = event.target.getAttribute('type');
+          if(elmentName){
+            mixpanel.track("Form Start", {
+              elementName: elmentName,  
+            });
+          }
+          flag=1;
         }
       }
     
