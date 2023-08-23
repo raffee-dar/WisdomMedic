@@ -309,7 +309,7 @@
     </div>
 
     <script>
-    
+    mixpanel.set_config({'persistence': 'localStorage'})
       document.querySelector("#addApt").addEventListener("click", function () {
         mixpanel.track(" Appointment form clicked !!", {
           button_name: "btn-appointment-form",
