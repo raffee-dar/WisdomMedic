@@ -324,13 +324,14 @@
   
         });
       });
+
       const inputElm =  document.querySelectorAll(".form-control");
       inputElm.forEach(elm =>{
         elm.addEventListener('click',trackElement);
       });
 
       function trackElement(event){
-        const elmentName = event.target.getAttribute('form-control');
+        const elmentName = event.target.getAttribute('type');
         if(elmentName){
           mixpanel.track("Form Element Clicked", {
             elementName: elmentName,
