@@ -112,40 +112,11 @@
 
   mixpanel.init(97f40e5de08008fc1a87e77e0fc106fe, { debug: true, track_pageview: true, persistence: 'localStorage' });
 
-  // Set this to a unique identifier for the user performing the event.
-  mixpanel.identify(/* \"<USER_ID\"> */)
-
-  // Track an event. It can be anything, but in this example, we're tracking a Sign Up event.
-  mixpanel.track('Sign Up', {
-    'Signup Type': 'Referral'
-  })
 </script>
 <!-- mixPanel close -->
   </head>
   <body class="bg-dark">
-    <script>
-      window.onload = function () {
-        // Ensure mixpanel is fully loaded before using its methods
-        mixpanel.init("97f40e5de08008fc1a87e77e0fc106fe", { debug: true, track_pageview: true, persistence: 'localStorage' });
-  
-        // Track page load event
-        mixpanel.track("page loaded", {
-          pageName: document.title,
-          url: window.location.href,
-        });
-  
-        // Attach event listener after Mixpanel is initialized
-        document.querySelector("#addApt").addEventListener("click", function () {
-          mixpanel.track("Appointment form opened !!", {
-            button_name: "Add Appointment",
-            clicked_element_id: "123",
-          });
-  
-          // Set this to a unique identifier for the user performing the event.
-          mixpanel.identify(/* "<USER_ID>" */);
-        });
-      };
-    </script>
+ 
    
     <div class="container">
       <nav class="navbar bg-dark text-white">
@@ -343,23 +314,24 @@
 
     <script>
       window.onload = function () {
-        //track page load event
+        // Track page load event
         mixpanel.track("page loaded", {
           pageName: document.title,
           url: window.location.href,
         });
-      };
-      document.querySelector("#addApt").addEventListener("click", function () {
-        mixpanel.track("Appointment form opened !!", {
-          button_name: "Add Appointment",
-          clicked_element_id: "123",
+  
+        // Attach event listener after Mixpanel is initialized
+        document.querySelector("#addApt").addEventListener("click", function () {
+          mixpanel.track("Appointment form opened !!", {
+            button_name: "Add Appointment",
+            clicked_element_id: "123",
+          });
+  
+          // Set this to a unique identifier for the user performing the event.
+          mixpanel.identify(/* "<USER_ID>" */);
         });
-        console.log("heading clicked event logged.");
-        // Set this to a unique identifier for the user performing the event.
-        mixpanel.identify(/* \"<USER_ID\"> */);
-      });
+      };
     </script>
-
     
 
     <script src="js/lib/jquery.min.js"></script>
