@@ -319,7 +319,7 @@
       
       document.querySelector(".btn-aptDetail").addEventListener("click", function () {
         mixpanel.track(" Appintment details entered !!", {
-          patientName: document.getElementById('#patientName').value,
+          patientName: document.querySelector('#patientName').value,
   
         });
       });
