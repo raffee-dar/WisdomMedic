@@ -1,66 +1,100 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto+Slab:400,300,700');
 
-/**  Basic Page CSS **/
-body{
-  font-family: "Roboto Slab", sans-serif;
+/** Root Variables **/
+:root {
+  --primary-color: #337ab7;
+  --secondary-color: #E0E6AE;
+  --hover-color: #EEC856;
+  --dark-bg: #271911;
+  --light-bg: #f8f9fa;
+  --text-light: #ffffff;
+  --text-dark: #343a40;
+  --text-muted: #667b82;
+  --font-primary: 'Roboto Slab', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+  --border-radius: 8px;
+  --transition-speed: 0.3s ease-in-out;
+}
+
+/** Basic Page CSS **/
+body {
+  font-family: var(--font-primary);
   font-weight: 300;
   position: relative;
-  background-color: #271911;
+  background-color: var(--dark-bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text-light);
 }
-
 
 .main {
-  background: white;
-  padding: 30px 0;
+  background: var(--light-bg);
+  padding: 30px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/** Header & Footer **/
 header a, footer a {
-  color: white;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color var(--transition-speed);
 }
-
-/**  Footer **/
 
 footer {
-  background: #337ab7;
-  color: white;
-  font-size: .8em;
-  padding: 20px 0 40px 0;
+  background: var(--primary-color);
+  color: var(--text-light);
+  font-size: 0.9em;
+  padding: 20px;
+  text-align: center;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 footer a {
-  color: #E0E6AE;
+  color: var(--secondary-color);
 }
 
 footer a:hover {
-  color: #EEC856 !important;
+  color: var(--hover-color);
 }
 
-/** Application Classes **/
-
+/** Buttons **/
 .bg-black, .btn-black {
-  background-color: #343a40 !important ;
-  border: inherit;
-}
-
- .card-body {
-  display: none;
-}
-
-#aptForm label {
-  font-weight: 700;
-}
-
-.apt-addheading {
+  background-color: var(--text-dark) !important;
+  border: none;
+  color: var(--text-light);
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
   cursor: pointer;
-  user-select: none;
 }
 
+.bg-black:hover, .btn-black:hover {
+  background-color: #495057 !important;
+  transform: scale(1.05);
+}
+
+/** Cards **/
+.card-body {
+  display: none;
+  padding: 15px;
+  background: var(--light-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/** Appointment List **/
 .appointment-list {
   font-size: 1.1em;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 .appointment-list .pet-item {
-  border-bottom: 1px dotted gray;
+  border-bottom: 1px dotted var(--text-muted);
+  padding: 15px 0;
 }
 
 .appointment-list .pet-item:last-child {
@@ -69,24 +103,65 @@ footer a:hover {
 
 .appointment-list .pet-name {
   font-weight: 600;
-  color: #337ab7;
+  color: var(--primary-color);
   font-size: 1.3em;
-  line-height: 100%;
+  line-height: 1.2;
 }
 
 .appointment-list .label-item {
   font-weight: 600;
-  color: #667B82;
+  color: var(--text-muted);
 }
 
 .appointment-list .apt-date {
   font-style: italic;
+  color: var(--text-muted);
 }
 
 .appointment-list .apt-notes {
-  line-height: 120%;
+  line-height: 1.5;
 }
 
+/** Form Elements **/
+#aptForm label {
+  font-weight: 700;
+  font-family: var(--font-secondary);
+}
+
+.apt-addheading {
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.apt-addheading:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/** Dropdown Items **/
 .dropdown-item.active, .dropdown-item:active {
-  background-color: #a9aeb2;
+  background-color: #adb5bd;
+  color: var(--text-dark);
+  transition: background-color var(--transition-speed);
+}
+
+/** Animations & Transitions **/
+* {
+  box-sizing: border-box;
+}
+
+a {
+  transition: color var(--transition-speed);
+}
+
+.btn-black, .apt-addheading, footer a {
+  transition: all var(--transition-speed);
 }
