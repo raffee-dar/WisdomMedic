@@ -1,73 +1,61 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto+Slab:400,300,700');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;300;700&family=Roboto+Slab:wght@400;300;700&display=swap');
 
-/** Root Variables **/
-:root {
-  --primary-color: #337ab7;
-  --secondary-color: #E0E6AE;
-  --hover-color: #EEC856;
-  --dark-bg: #271911;
-  --light-bg: #f8f9fa;
-  --text-light: #ffffff;
-  --text-dark: #343a40;
-  --text-muted: #667b82;
-  --font-primary: 'Roboto Slab', sans-serif;
-  --font-secondary: 'Open Sans', sans-serif;
-  --border-radius: 8px;
-  --transition-speed: 0.3s ease-in-out;
-}
-
-/** Basic Page CSS **/
+/** Base Styles **/
 body {
-  font-family: var(--font-primary);
+  font-family: 'Roboto Slab', sans-serif;
   font-weight: 300;
   position: relative;
-  background-color: var(--dark-bg);
+  background-color: #271911;
   margin: 0;
   padding: 0;
-  color: var(--text-light);
+  color: #f5f5f5;
+  line-height: 1.6;
+  transition: background-color 0.3s ease;
 }
 
 .main {
-  background: var(--light-bg);
+  background: white;
   padding: 30px 20px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
 }
 
-/** Header & Footer **/
+/** Header and Footer **/
 header a, footer a {
-  color: var(--text-light);
+  color: #f5f5f5;
   text-decoration: none;
-  transition: color var(--transition-speed);
+  transition: color 0.3s ease;
 }
 
 footer {
-  background: var(--primary-color);
-  color: var(--text-light);
+  background: #2d6eb6;
+  color: white;
   font-size: 0.9em;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
+  border-top: 5px solid #1a4f87;
 }
 
 footer a {
-  color: var(--secondary-color);
+  color: #f1e67e;
 }
 
 footer a:hover {
-  color: var(--hover-color);
+  color: #ffcc33;
 }
 
 /** Buttons **/
 .bg-black, .btn-black {
-  background-color: var(--text-dark) !important;
+  background-color: #343a40 !important;
   border: none;
-  color: var(--text-light);
-  padding: 10px 15px;
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .bg-black:hover, .btn-black:hover {
@@ -78,23 +66,32 @@ footer a:hover {
 /** Cards **/
 .card-body {
   display: none;
-  padding: 15px;
-  background: var(--light-bg);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /** Appointment List **/
 .appointment-list {
   font-size: 1.1em;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+  margin-top: 20px;
 }
 
 .appointment-list .pet-item {
-  border-bottom: 1px dotted var(--text-muted);
-  padding: 15px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .appointment-list .pet-item:last-child {
@@ -103,65 +100,68 @@ footer a:hover {
 
 .appointment-list .pet-name {
   font-weight: 600;
-  color: var(--primary-color);
+  color: #2d6eb6;
   font-size: 1.3em;
-  line-height: 1.2;
 }
 
 .appointment-list .label-item {
   font-weight: 600;
-  color: var(--text-muted);
+  color: #667B82;
 }
 
 .appointment-list .apt-date {
   font-style: italic;
-  color: var(--text-muted);
+  color: #444;
 }
 
 .appointment-list .apt-notes {
   line-height: 1.5;
+  color: #555;
 }
 
-/** Form Elements **/
+/** Form Styles **/
 #aptForm label {
   font-weight: 700;
-  font-family: var(--font-secondary);
+  display: block;
+  margin-bottom: 5px;
 }
 
-.apt-addheading {
-  cursor: pointer;
-  user-select: none;
-  font-weight: bold;
-  text-align: center;
-  color: var(--primary-color);
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
   padding: 10px;
-  margin: 10px 0;
-  border: 1px solid var(--primary-color);
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
 }
 
-.apt-addheading:hover {
-  background-color: var(--primary-color);
-  color: var(--text-light);
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  border-color: #2d6eb6;
+  outline: none;
 }
 
-/** Dropdown Items **/
+/** Dropdowns **/
 .dropdown-item.active, .dropdown-item:active {
-  background-color: #adb5bd;
-  color: var(--text-dark);
-  transition: background-color var(--transition-speed);
+  background-color: #a9aeb2;
+  color: #000;
 }
 
-/** Animations & Transitions **/
+.dropdown-item:hover {
+  background-color: #e6e6e6;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/** Transitions & Effects **/
 * {
   box-sizing: border-box;
 }
 
 a {
-  transition: color var(--transition-speed);
+  transition: color 0.3s ease;
 }
 
-.btn-black, .apt-addheading, footer a {
-  transition: all var(--transition-speed);
+a:hover {
+  color: #ffcc33;
 }
