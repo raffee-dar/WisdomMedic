@@ -5,52 +5,53 @@ body {
   font-family: 'Roboto Slab', sans-serif;
   font-weight: 300;
   position: relative;
-  background-color: #271911;
+  background-color: #1E1E1E; /* Darker background for less strain */
   margin: 0;
   padding: 0;
-  color: #f5f5f5;
+  color: #F5F5F5; /* Light text for better contrast */
   line-height: 1.6;
   transition: background-color 0.3s ease;
 }
 
 .main {
-  background: white;
+  background: #FAFAFA; /* Soft light background for content sections */
   padding: 30px 20px;
   border-radius: 8px;
   margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   max-width: 900px;
+  color: #333; /* Darker text for better readability */
 }
 
 /** Header and Footer **/
 header a, footer a {
-  color: #f5f5f5;
+  color: #F5F5F5;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 footer {
-  background: #2d6eb6;
-  color: white;
+  background: #204080; /* Deeper blue for better contrast */
+  color: #F5F5F5;
   font-size: 0.9em;
   padding: 20px 0;
   text-align: center;
-  border-top: 5px solid #1a4f87;
+  border-top: 5px solid #153060;
 }
 
 footer a {
-  color: #f1e67e;
+  color: #FFD700; /* Bright gold for emphasis */
 }
 
 footer a:hover {
-  color: #ffcc33;
+  color: #FFA500; /* Orange for hover state */
 }
 
 /** Buttons **/
 .bg-black, .btn-black {
-  background-color: #343a40 !important;
+  background-color: #495057 !important; /* Mid-tone gray for buttons */
   border: none;
-  color: #fff;
+  color: #FFF;
   padding: 10px 20px;
   text-transform: uppercase;
   border-radius: 5px;
@@ -59,7 +60,7 @@ footer a:hover {
 }
 
 .bg-black:hover, .btn-black:hover {
-  background-color: #495057 !important;
+  background-color: #343A40 !important; /* Slightly darker hover state */
   transform: scale(1.05);
 }
 
@@ -69,11 +70,12 @@ footer a:hover {
 }
 
 .card {
-  background: white;
+  background: #FFF; /* Bright background for cards */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   overflow: hidden;
+  color: #333; /* High contrast text for readability */
   transition: transform 0.2s ease;
 }
 
@@ -100,23 +102,23 @@ footer a:hover {
 
 .appointment-list .pet-name {
   font-weight: 600;
-  color: #2d6eb6;
+  color: #204080; /* Bold blue for names */
   font-size: 1.3em;
 }
 
 .appointment-list .label-item {
   font-weight: 600;
-  color: #667B82;
+  color: #555; /* Mid-gray for labels */
 }
 
 .appointment-list .apt-date {
   font-style: italic;
-  color: #444;
+  color: #666; /* Softer gray for less prominent text */
 }
 
 .appointment-list .apt-notes {
   line-height: 1.5;
-  color: #555;
+  color: #444; /* Readable gray for details */
 }
 
 /** Form Styles **/
@@ -124,31 +126,35 @@ footer a:hover {
   font-weight: 700;
   display: block;
   margin-bottom: 5px;
+  color: #204080; /* Consistent blue for labels */
 }
 
 input[type="text"], input[type="email"], textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #CCC;
   border-radius: 5px;
   margin-bottom: 15px;
   font-size: 1em;
-  transition: border-color 0.3s ease;
+  background-color: #F9F9F9; /* Light background for inputs */
+  color: #333;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-  border-color: #2d6eb6;
+  border-color: #204080;
   outline: none;
+  background-color: #FFF;
 }
 
 /** Dropdowns **/
 .dropdown-item.active, .dropdown-item:active {
-  background-color: #a9aeb2;
+  background-color: #D3D3D3; /* Light gray for active dropdown items */
   color: #000;
 }
 
 .dropdown-item:hover {
-  background-color: #e6e6e6;
+  background-color: #E6E6E6;
   color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -163,5 +169,5 @@ a {
 }
 
 a:hover {
-  color: #ffcc33;
+  color: #FFA500; /* Orange for hover state */
 }
